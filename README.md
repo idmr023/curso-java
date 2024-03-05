@@ -1,8 +1,40 @@
 # JAVA
+- Básico
+    - [Operadores](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/operadores)
+        - [Operador instanceOf](#operador-instanceof)
+        - [For each](#for-each)
+        - [Tipos de valores](#tipos-de-valores)
+        - [Etiquetas en Java](#etiquetas-en-java)
+    - [Arrays](#arrays)
+    - [Clase Math](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/claseMath)
+    - [Clase System](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/claseSystem)
+    - [Date Calendar](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/dateCalendar)
+    - [Flujos de control](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/flujoControl)
+    - [Wrapper](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/wrapper)
+- [Matrices](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/matrices)
+- [Programación orientada a objetos](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/poo)
+    - [Clases y objetos](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/poo/clasesObjetos)
+    - [Herencia](#herencia)
+    - [Interfaces](#interfaces)
+    - [Paquetes](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/poo/paquetes)
+    - [Sobrecarga de métodos](#sobrecarga-de-métodos)
+- [Manejo de excepciones](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/?ref=lbp)
+- [Estructura de datos](#estructura-de-datos)
+- [Estructura de datos no primitivos](#estructura-de-datos-no-primitivos)
+- [Hilos y concurrencia](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/threads)
+
+- [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
+- Programación funcional
+    - [Expresiones Lambda](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/programFuncional/lambda) 
+    - [Api Stream](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/programFuncional/stream)
+    - [Optional](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/programFuncional/optional)
+- [Date Time](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/dateTime)
+- [Anotaciones](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/anotaciones)
+- [Datos genéricos](#datos-genéricos)
 
 ### Notas
 
-- var se usa para declarar variables flexibles, es decir, el tipo de variable cambia de acuerdo al dato que se almacena
+- var se usa para almacenar variables cuyo valor cambia de acuerdo al dato que se almacena
 - AND tiene prioridad sobre OR
 - Nombramiento de paquetes: `org.nombredelpaquete.nombredelproyecto`
 
@@ -53,10 +85,9 @@ for (int i = 0; i <= count-1; i++) { //<= count-1 // -1 porque si bien el arregl
             System.out.println(i + ".-" + nombres[i]);
         }
 ```
+[Material complementario](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/básico/arrays)
 
 Otra forma de agregar items a Arrays (optimizada)
-
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled.png)
 
 ```java
 List<ElementoForm> elemtnos = Arrays.asList(
@@ -122,8 +153,6 @@ for (String nombre : nombres){
 }
 ```
 
-### [Class SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html)
-
 ### Sobrecarga de métodos
 
 - La sobrecarga de métodos es tener diferentes métodos de diferente tipo y diferentes argumentos (esto último obligatorio) y/o cantidad de argumentos pero con el mismo nombre.
@@ -145,49 +174,58 @@ public float sumar(float a, int... argumentos){
 
 ### Herencia
 
-- A los elementos de las clases es buena idea ponerles protected para que no se puedan modificar directamente, tipo alumno.nombre = "Paco", si no usar alumno.setNombre("Paco")
-- Sobreescritura de métodos en la herencia —parte del método del padre reutilizado
+- Si se coloca ```final``` en clases o en métodos es para evitar la herencia
+- A los elementos de las clases es buena idea ponerles ```protected``` para que no se puedan modificar directamente:
+```java
+  alumno.nombre = "Paco"
+  //Para asignarles valores, sería: alumno.setNombre("Paco")
+```
+- Sobreescritura de métodos en la herencia —parte del método del padre reutilizado:
 
 ```java
 @Override
-public String saludar(){
-
+public String calcularPromedio(){
+    return ((super.calcularPromedio()*3)/4)
 }
 ```
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%202.png)
-
-- Si se coloca final en clases es para evitar que esta clase tenga herencia y si se coloca en métodos es para evitar que se pase a través de la herencia
-
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%203.png)
-
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%204.png)
-
 ### Interfaces
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%205.png)
-
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%206.png)
+Una interfaz es una colaboración de métodos abstractos y de valores constantes que puede realiazr un objeto determinado
 
 Ejemplo:
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%207.png)
+```java
+//Clase interface
+public interface Imprimible{
+    public void imprimir();
+}
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%208.png)
+//Clase que recibirá los atributos de la clase interface
+public class Curriculum{
+    @Override
+    public void imprimir(){
+        //imprime el curriculum
+    }
+}
+```
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%209.png)
-
-Datos genéricos:
+Herencia múltiple a nivel de interfaces:
 
 ```java
-package generics;
+public class Perro implements IPuedeSaltar, IPuedeLadrar{
+    @Override
+    public void ladrar(){}
 
-import org.aguzman.poointerfaces.modelo.Cliente;
+    @Override
+    public void saltar(){}
+}
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+```
 
+### Datos genéricos:
+
+```java
 public class EjemploGenericos {
     public static void main(String[] args) {
         List clientes = new ArrayList();
@@ -239,25 +277,15 @@ public class EjemploGenericos {
     }
 }
 ```
-
-### [Exceptions](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/?ref=lbp)
-
-- Las validaciones se pueden realizar, por ejemplo, cuando quiero hacer validaciones para evitar el uso repetitivo de if else, if else.
-
-### Estructura de datos
+### Estructura de datos no primitivos
 
 ![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%2010.png)
 
-- Los ArrayList permiten elementos repetidos, mientras que los Set no.
+Los ArrayList permiten elementos repetidos, mientras que los Set no.
 
-### Ejemplo ArrayList Comparable y Comparator
+Ejemplo ArrayList Comparable y Comparator
 
 ```java
-package org.aguzman.ejemplos.set;
-
-import org.aguzman.ejemplos.modelo.Alumno;
-
-import java.util.*;
 
 public class EjemploListComparableComparator {
     public static void main(String[] args) {
@@ -279,10 +307,4 @@ public class EjemploListComparableComparator {
 }
 ```
 
-### [Hilos](https://www.tutorialesprogramacionya.com/javaya/detalleconcepto.php?punto=100&codigo=180&inicio=80)
-
-### Lambda (link a GitHub)
-
-- `err -> System.out.println(err) == System.out::print`
-
-API Stream (link)
+[Material complementario](https://github.com/idmr023/curso-java/tree/main/src/org/idmr/estructura_de_datos_no_primitiva)
