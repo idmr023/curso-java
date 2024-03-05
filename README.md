@@ -10,7 +10,7 @@
 
 ### Números
 
-```jsx
+```java
 int numeroBinario = 0b1111111111; //Al colocar el 0b adelante, el compilador interpreta que es un número binarioint 
 numeroOctal = 0764; //Anteponer el 0 significa que es octalint 
 numeroHex = 0xB;
@@ -24,7 +24,7 @@ int randomInt = 15 + randomObj.nextInt(25-15+1);
 
 ### Strings
 
-```jsx
+```java
 /*.append es mucho más rápido que concata o que concatenar de forma tradicional*/
 for (int i = 0; i < 10000; i++){
     //c = c.concat(a).concat(b).concat("\n");
@@ -38,13 +38,13 @@ for (int i = 0; i < 10000; i++){
 
 Número de filas y columnas
 
-```jsx
+```java
 int[][] numeros = new int [2][3];
 System.out.println("Número de filas =" + numeros.length);
 System.out.println("Número de columnas =" + numeros[0].length);
 ```
 
-```jsx
+```java
 for (int i = 0; i <= count-1; i++) { //<= count-1 // -1 porque si bien el arreglo es de ese tamaño (8), el arreglo inicia desde 0 , lo que quiere decir que el último elemento será 7 (el tamaño - 1)
             if (nombres[i].toLowerCase().contains("ANDRES".toLowerCase()) ||
                     nombres[i].toLowerCase().contains("pepa".toLowerCase())) {
@@ -58,9 +58,21 @@ Otra forma de agregar items a Arrays (optimizada)
 
 ![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled.png)
 
+```java
+List<ElementoForm> elemtnos = Arrays.asList(
+	username,
+	password,
+	email,
+	edad,
+	experiencia,
+	lenguaje,
+	saludar
+);
+```
+
 ### Etiquetas en Java
 
-```jsx
+```java
 salir: while (i < matriz.length){
 	j = 0;
 	while (j < i ){
@@ -78,7 +90,7 @@ así se puede llamar desde otro lado rápidamente*/
 
 ### Operador instanceOf
 
-```jsx
+```java
 //instanceof devuelve si el valor es del tipo de referencia indicado. 
 //Los ancestros son instance of de hijos, pero no puede
 String text = "Probando, 1, 2 ,3";
@@ -97,7 +109,7 @@ System.out.println("num es del tipo Integer "+ b1);
 
 ### For each
 
-```jsx
+```java
 String[] nombres = {"Andres", "Pepe", "María", "Paco", "Lalo", "Bea", "Pato", "Pepa"};
         
 /*
@@ -136,7 +148,12 @@ public float sumar(float a, int... argumentos){
 - A los elementos de las clases es buena idea ponerles protected para que no se puedan modificar directamente, tipo alumno.nombre = "Paco", si no usar alumno.setNombre("Paco")
 - Sobreescritura de métodos en la herencia —parte del método del padre reutilizado
 
-![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%201.png)
+```java
+@Override
+public String saludar(){
+
+}
+```
 
 ![Untitled](JAVA%2080de9335da55424e9b91887cf9d4b247/Untitled%202.png)
 
