@@ -37,6 +37,7 @@
 - var se usa para almacenar variables cuyo valor cambia de acuerdo al dato que se almacena
 - AND tiene prioridad sobre OR
 - Nombramiento de paquetes: `org.nombredelpaquete.nombredelproyecto`
+- La solución al problema `Exception in thread "AWT-EventQueue-0" java.lang.NullPointerException: Cannot invoke "java.net.URL.toExternalForm()" because "location" is null` es colocar la imagen o la carpeta que las contenga en src/ 
 
 ## Tipos de valores
 
